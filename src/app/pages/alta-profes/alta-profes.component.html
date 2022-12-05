@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row justify-content-center mt-4">
+    <h3 class="text-center">Alta de Profesor</h3>
+  </div>
+  <form #formProfe="ngForm" (submit)="agregar(formProfe.form)">
+    <div class="row justify-content-center mt-4">
+      <div class="col-6  mt-2">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          #nombre="ngModel"
+          [(ngModel)]="profe.nombre"
+          name="nombre"
+          required
+          minlength="2"
+          maxlength="25"
+        />
+        <div *ngIf="nombre.errors && formProfe.touched" >
+          <small *ngIf="nombre.errors?.['required']">El nombre es requerido.</small>
+          <small *ngIf="nombre.errors?.['minlength']">El nombre debe contener 2 caracteres como mínimo.</small>
+          <small *ngIf="nombre.errors?.['maxlength']">El nombre es muy largo (Max: 25 caracteres)</small>
+        </div>
+      </div>
+      <div class="col-6 mt-2">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input
+          type="text"
+          class="form-control"
+          id="apellido"
+          name="apellido"
+          required
+          maxlength="35"
+          #apellido="ngModel"
+          [(ngModel)]="profe.apellido"
+        />
+        <div *ngIf="apellido.errors && formProfe.touched" >
+          <small *ngIf="apellido.errors?.['required']">El apellido es requerido.</small>
+          <small *ngIf="apellido.errors?.['maxlength']">El apellido es muy largo (Max: 35 caracteres)</small>
+        </div>
+      </div>
+      <div class="col-6 mt-2">
+        <label for="ciudad" class="form-label">Ciudad</label>
+        <input
+          type="text"
+          class="form-control"
+          id="ciudad"
+          name="ciudad"
+          required
+          maxlength="25"
+          #ciudad="ngModel"
+          [(ngModel)]="profe.ciudad"
+        />
+        <div *ngIf="ciudad.errors && formProfe.touched" >
+          <small *ngIf="ciudad.errors?.['required']">La ciudad es requerida.</small>
+          <small *ngIf="ciudad.errors?.['maxlength']">El nombre de la ciudad es muy largo (Max: 25 caracteres)</small>
+        </div>
+      </div>
+      <div class="col-6 mt-2">
+        <label for="provincia" class="form-label"
+          >Provincia/Estado</label
+        >
+        <select class="form-select" id="provincia" name="provincia" required
+                #provincia="ngModel"
+                [(ngModel)]="profe.provincia">
+          <option selected disabled value="10">Elige...</option>
+          <option value="0">Buenos Aires</option>
+          <option value="1">Córdoba</option>
+          <option value="2">Santa Fe</option>
+          <option value="3">Misiones</option>
+          <option value="4">Mendoza</option>
+        </select>
+        <div *ngIf="provincia.errors && formProfe.touched" >
+          <small *ngIf="provincia.errors?.['required']">La provincia es requerida.</small>
+        </div>
+      </div>
+
+      <div class="col-2 mt-2">
+        <button class="btn btn-success" [disabled]="formProfe.invalid" type="submit">Agregar</button>
+      </div>
+      <div class="col-2 mt-2">
+        <button class="btn btn-danger" routerLink="/profes" type="button">Cancelar</button>
+      </div>
+    </div>
+  </form>
+</div>
