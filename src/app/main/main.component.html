@@ -1,0 +1,14 @@
+
+<mat-drawer-container style="height: 100% !important;" class="example-container" [hasBackdrop]="true">
+    <mat-drawer class="example-sidenav" #drawer mode="side">
+        <mat-list style="width: 100%;">
+            <mat-list-item class="item" routerLinkActive="active" routerLink="/main/user">Usuarios</mat-list-item>
+            <mat-list-item class="item" routerLinkActive="active" routerLink="/main/role">Roles</mat-list-item>
+        </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <main-nav (open)="drawer.toggle($event)"></main-nav>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+

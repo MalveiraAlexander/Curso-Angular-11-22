@@ -1,0 +1,17 @@
+.example-sidenav {
+    width: 200px;
+}
+
+.item:hover {
+    background-color: rgba(0, 0, 0, 0.685);
+    transition: all 0.5s;
+}
+
+.item {
+    cursor: pointer !important;
+    transition: all 0.5s;
+}
+
+.active {
+    background-color: rgba(0, 0, 0, 0.685);
+}

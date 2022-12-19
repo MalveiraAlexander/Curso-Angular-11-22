@@ -1,0 +1,43 @@
+<div  class="container">
+    <div class="row justify-content-center mt-2 mb-4">
+      <h1 class="text-center">Listado de Roles</h1>
+    </div>
+    <div class="row justify-content-end mb-4">
+      <div class="col-2">
+        <button mat-fab color="primary" routerLink="add">
+          <mat-icon>person_add</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-3">
+      <div *ngFor="let item of roles" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-2 mt-3">
+        <mat-card>
+          <mat-card-header class="card-header">
+            <h4>ID: {{item.id}}</h4>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="container-fluid">
+              <div class="row">
+                <p>Nombre Rol: {{item.name}}</p>
+              </div>
+              <div class="row">
+                <p>Descripción: {{item.description}}</p>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button>
+              <mat-icon>
+                edit
+              </mat-icon>
+            </button>
+            <button mat-icon-button>
+              <mat-icon>
+                delete
+              </mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>

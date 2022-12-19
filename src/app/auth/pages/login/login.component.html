@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <mat-card class="mt-5">
+        <mat-card-content >
+          <div *ngIf="loading" class="container-fluid">
+            <div class="row justify-content-center">
+              <mat-spinner diameter="50"></mat-spinner>
+            </div>
+          </div>
+          <div *ngIf="!loading" class="container-fluid">
+            <div class="row justify-content-center">
+              <h4 class="text-center" style="color: whitesmoke;">Ingresar</h4>
+            </div>
+            <form [formGroup]="loginForm" (submit)="login()">
+              <div class="row justify-content-center">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Email, Usuario o Celular</mat-label>
+                  <input
+                        matInput
+                        type="text"
+                        id="username"
+                        name="username"
+                        required
+                        formControlName="username"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="row justify-content-center">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Contraseña</mat-label>
+                  <input
+                        matInput
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        formControlName="password"
+                  />
+                </mat-form-field>
+              </div>
+              <div *ngIf="isError" class="row justify-content-center mt-4">
+                <small class="text-center text-danger">Datos ingreso incorrectos</small>
+              </div>
+              <div *ngIf="isUserNotFound" class="row justify-content-center mt-4">
+                <small class="text-center text-danger">Usuario no registrado</small>
+              </div>
+              <div class="row justify-content-center mt-4">
+                <button mat-raised-button color="primary" type="submit">Ingresar</button>
+              </div>
+            </form>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
